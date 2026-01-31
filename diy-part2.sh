@@ -32,6 +32,15 @@ else
   echo "警告：$CONFIG_FILE 不存在，跳过 IP 修改"
 fi
 
+
+# 删除 package/mtk/drivers/mt_wifi/files/mt7981-default-eeprom/e2p
+rm -f package/mtk/drivers/mt_wifi/files/mt7981-default-eeprom/e2p
+if [ $? -eq 0 ]; then
+  echo "已删除 package/mtk/drivers/mt_wifi/files/mt7981-default-eeprom/e2p"
+else
+  echo "错误：删除 package/mtk/drivers/mt_wifi/files/mt7981-default-eeprom/e2p 失败"
+fi
+
 # 创建 MT7981 固件符号链接
 EEPROM_FILE="package/mtk/drivers/mt_wifi/files/mt7981-default-eeprom/MT7981_iPAiLNA_EEPROM.bin"
 if [ -f "$EEPROM_FILE" ]; then
